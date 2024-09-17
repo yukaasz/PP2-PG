@@ -2,7 +2,7 @@
 ## Conceito do projeto
 Este projeto foi realizado com a finalidade de melhor compreender o funcionamento do método Ray Tracing. Nele, nós tivemos a ideia de simular a movimentação de um pêndulo de Newton através dos mecanismos oferecidos no livro que tomamos como base.
 ## Pré-Requisitos e recursos utilizados
-O grupo utilizou linguagem c++ para desenvolver a implementação completa do projeto, utilizando apenas as bibiliotecas:
+O grupo utilizou linguagem C++ para desenvolver a implementação completa do projeto, utilizando apenas as bibiliotecas:
 1. `<cmath>`
 2. `<cstdlib>`
 3. `<iostream>`
