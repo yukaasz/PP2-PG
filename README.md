@@ -9,6 +9,7 @@ O grupo utilizou linguagem c++ para desenvolver a implementação completa do pr
 4. `<limits>`
 5. `<memory>`
 6. `<vector>`
+
 Foram usados como base os códigos apresentados no livro "Ray Tracing in One Weekend" da série de livros online dos autores: Peter Shirley, Trevor David Black, Steve Hollasch. Acessado pelo link: "https://raytracing.github.io/books/RayTracingInOneWeekend.html"
 ## Passo a passo
 Para o desenvolvimento do projeto foi estudado o livro "Ray Tracing in One Weekend". Seguindo o livro, pudemos contruir um código base que construía uma imagem similar à capa do livro, e a partir dele, modificamos as partes necessárias para dar vida ao nosso projeto.
