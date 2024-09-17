@@ -30,7 +30,7 @@ function parseOBJ(text) {
   const objNormals = [[0, 0, 0]];
   const objColors = [[0, 0, 0]];
 
-  // same order as `f` indices
+  // same order as f indices
   const objVertexData = [
     objPositions,
     objTexcoords,
@@ -38,7 +38,7 @@ function parseOBJ(text) {
     objColors,
   ];
 
-  // same order as `f` indices
+  // same order as f indices
   let webglVertexData = [
     [],   // positions
     [],   // texcoords
@@ -153,7 +153,7 @@ function parseOBJ(text) {
     },
   };
 
-  const keywordRE = /(\w*)(?: )*(.*)/;
+  const keywordRE = /(\w*)(?: )(.)/;
   const lines = text.split('\n');
   for (let lineNo = 0; lineNo < lines.length; ++lineNo) {
     const line = lines[lineNo].trim();
@@ -240,7 +240,7 @@ async function main() {
   // compiles and links the shaders, looks up attribute and uniform locations
   const meshProgramInfo = twgl.createProgramInfo(gl, [vs, fs]);
 
-  // const response = await fetch('resources/book.obj');  /* webglfundamentals: url */
+  // const response = await fetch('https://webgl2fundamentals.org/webgl/resources/models/book-vertex-chameleon-study/book.obj');  
   const text = `
     ####
     #
@@ -6926,7 +6926,6 @@ async function main() {
 
     # End of File
   `;
-  
   const obj = parseOBJ(text);
 
   const parts = obj.geometries.map(({data}) => {
@@ -6939,7 +6938,7 @@ async function main() {
     // }
     //
     // and because those names match the attributes in our vertex
-    // shader we can pass it directly into `createBufferInfoFromArrays`
+    // shader we can pass it directly into createBufferInfoFromArrays
     // from the article "less code more fun".
 
     if (data.color) {
@@ -7049,20 +7048,38 @@ async function main() {
 
     // compute the world matrix once since all parts
     // are at the same space.
-    let u_world = m4.yRotation(time);
-    u_world = m4.translate(u_world, ...objOffset);
+
+    // PRIMEIRO LIVRO 
+    let u_world = m4.identity();  // Comece com a matriz identidade
+    u_world = m4.translate(u_world, -0.2, 0, 0);  // Translade primeiro o objeto
+    u_world = m4.multiply(u_world, m4.yRotation(time));  // Aplique a rotação em torno do seu eixo Y local
+    u_world = m4.translate(u_world, ...objOffset);  // Compense a posição inicial
 
     for (const {bufferInfo, vao, material} of parts) {
-      // set the attributes for this part.
       gl.bindVertexArray(vao);
-      // calls gl.uniform
       twgl.setUniforms(meshProgramInfo, {
         u_world,
         u_diffuse: material.u_diffuse,
       });
-      // calls gl.drawArrays or gl.drawElements
       twgl.drawBufferInfo(gl, bufferInfo);
     }
+
+    //SEGUNDO LIVRO
+    let u_world2 = m4.identity();  // Comece com a matriz identidade
+    u_world2 = m4.translate(u_world2, 0.2, 0, 0);  // Translade o segundo objeto para sua posição
+    u_world2 = m4.multiply(u_world2, m4.xRotation(time));  // Aplique a rotação no segundo eixo Y local
+    u_world2 = m4.translate(u_world2, ...objOffset);  // Compense a posição inicial
+
+    for (const {bufferInfo, vao, material} of parts) {
+      gl.bindVertexArray(vao);
+      twgl.setUniforms(meshProgramInfo, {
+        u_world: u_world2,
+        u_diffuse: material.u_diffuse,
+      });
+      twgl.drawBufferInfo(gl, bufferInfo);
+    }
+
+    
 
     requestAnimationFrame(render);
   }
