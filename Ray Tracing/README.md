@@ -39,10 +39,3 @@ A imagem ppm será salva no diretório raíz. Para visualizar a imagem gerada é
 * João Vitor Averaldo Antunes
 * Lara Oliveira Luzeiro
 * Renan Yugo Ueda
-
-## Imagens/screenshot
-
-`` mudar depois
-![Imagem1](screenshots/imagem1.png)
-![Imagem2](screenshots/imagem2.png)
-![Imagem3](screenshots/imagem3.png)
