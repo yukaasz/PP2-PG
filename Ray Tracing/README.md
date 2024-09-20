@@ -25,7 +25,11 @@ Foram usados como base os códigos apresentados no livro "Ray Tracing in One Wee
  Para a animação (de nome "animacao.mp4"), foram gerados 10 quadros, sendo eles a esfera da extremidade na iminência do movimento, quadros intermediários relativos ao seu movimento circular (cujo centro, ou seja, a posição da corda que seguraria a esfera, está localizado 3 raios acima do centro da esfera) e um último quadro para o momento do contato com as outras esferas. Desse modo, as imagens foram reunidas em um editor de vídeo a uma taxa de 15 quadros por segundo. Após isso, as imagens foram refletidas para que fosse possível simular o movimento da outra extremidade mais facilmente, e, após um movimento completo do pêndulo, o vídeo gerado foi retrocedido, a fim de gerar um efeito de loop.
  
 ## Execução
-Para executar o projeto em seu terminal, vá até o diretório "raytracing" e execute para criar a pasta build e compilar o código:
+Para executar o projeto em seu terminal, é necessário ter o cmake previamente instalado, se não tiver o cmake na sua máquina, baixe ele no ubuntu através do código:
+```
+sudo apt install cmake
+```
+Com o cmake instalado, vá até o diretório "raytracing" e execute para criar a pasta build e compilar o código:
 ```
 mkdir build
 cd build
