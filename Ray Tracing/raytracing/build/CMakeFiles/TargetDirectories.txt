@@ -1,4 +1,0 @@
-/mnt/d/UFSCar/2024-1/PG/raytracing/build/CMakeFiles/rebuild_cache.dir
-/mnt/d/UFSCar/2024-1/PG/raytracing/build/CMakeFiles/edit_cache.dir
-/mnt/d/UFSCar/2024-1/PG/raytracing/build/CMakeFiles/inOneWeekend.dir
-/mnt/d/UFSCar/2024-1/PG/raytracing/build/CMakeFiles/hello.dir
